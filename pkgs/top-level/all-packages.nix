@@ -7404,6 +7404,8 @@ with pkgs;
 
   mesos-dns = callPackage ../servers/mesos-dns { };
 
+  monte = callPackage ../development/interpreters/monte/monte {};
+
   mujs = callPackage ../development/interpreters/mujs { };
 
   nix-exec = callPackage ../development/interpreters/nix-exec {
