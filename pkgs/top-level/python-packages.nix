@@ -310,6 +310,8 @@ in {
 
   mail-parser = callPackage ../development/python-modules/mail-parser { };
 
+  macropy = callPackage ../development/python-modules/macropy { };
+
   monty = callPackage ../development/python-modules/monty { };
 
   mpi4py = callPackage ../development/python-modules/mpi4py {
