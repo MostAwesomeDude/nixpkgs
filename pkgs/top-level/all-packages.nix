@@ -17017,6 +17017,8 @@ with pkgs;
 
   kubernetes-helm = callPackage ../applications/networking/cluster/helm { };
 
+  kubeless = callPackage ../applications/networking/cluster/kubeless { } ;
+
   kubetail = callPackage ../applications/networking/cluster/kubetail { } ;
 
   kupfer = callPackage ../applications/misc/kupfer { };
