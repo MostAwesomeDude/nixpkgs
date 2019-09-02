@@ -10887,6 +10887,8 @@ in
 
   rolespec = callPackage ../development/tools/misc/rolespec { };
 
+  runbook = callPackage ../development/interpreters/runbook { };
+
   rr = callPackage ../development/tools/analysis/rr { };
 
   samurai = callPackage ../development/tools/build-managers/samurai { };
