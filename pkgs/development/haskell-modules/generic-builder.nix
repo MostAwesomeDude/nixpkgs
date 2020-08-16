@@ -15,6 +15,7 @@ in
 , version, revision ? null
 , sha256 ? null
 , src ? fetchurl { url = "mirror://hackage/${pname}-${version}.tar.gz"; inherit sha256; }
+, sourceRoot ? null
 , buildDepends ? [], setupHaskellDepends ? [], libraryHaskellDepends ? [], executableHaskellDepends ? []
 , buildTarget ? ""
 , buildTools ? [], libraryToolDepends ? [], executableToolDepends ? [], testToolDepends ? [], benchmarkToolDepends ? []
@@ -300,7 +301,7 @@ stdenv.mkDerivation ({
   preConfigurePhases = ["compileBuildDriverPhase"];
   preInstallPhases = ["haddockPhase"];
 
-  inherit src;
+  inherit src sourceRoot;
 
   inherit depsBuildBuild nativeBuildInputs;
   buildInputs = otherBuildInputs ++ optionals (!isLibrary) propagatedBuildInputs;
@@ -645,6 +646,7 @@ stdenv.mkDerivation ({
 }
 // optionalAttrs (preCompileBuildDriver != "")  { inherit preCompileBuildDriver; }
 // optionalAttrs (postCompileBuildDriver != "") { inherit postCompileBuildDriver; }
+// optionalAttrs (sourceRoot != "")     { inherit sourceRoot; }
 // optionalAttrs (preUnpack != "")      { inherit preUnpack; }
 // optionalAttrs (postUnpack != "")     { inherit postUnpack; }
 // optionalAttrs (patches != [])        { inherit patches; }
