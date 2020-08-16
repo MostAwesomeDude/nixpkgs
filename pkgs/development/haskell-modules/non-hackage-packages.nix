@@ -27,4 +27,8 @@ self: super: {
   # Pappy is on Hackage, but this fork of a fork is years newer and is only
   # available via darcs.
   mbays-pappy = self.callPackage ./mbays-pappy.nix { };
+
+  # tersmu is on Hackage, but broken; when combined with mbays-pappy, the
+  # version from git is buildable.
+  mbays-tersmu = self.callPackage ./mbays-tersmu.nix { };
 }
